@@ -18,7 +18,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: [true, 'Password is required'],
-      trim: true
+      //trim: true
     },
 
     role: {
@@ -27,16 +27,8 @@ const userSchema = new Schema(
       default: 'renter'
     },
 
-    reservedTravels: {
-
-      type: Schema.Types.ObjectId,
-      ref: 'Booking',
-
-    },
-
     bankAccount: {
       type: Number
-
     }
   },
   {

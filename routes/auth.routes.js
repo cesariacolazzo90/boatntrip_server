@@ -5,11 +5,16 @@ const jwt = require('jsonwebtoken')
 const User = require("../models/User.model")
 const { verifyToken } = require("../middlewares/verifyToken")
 const saltRounds = 10
+console.log("estoy en las rutas de auth")
+
+
 
 
 router.post('/signup', (req, res, next) => {
+    console.log("estoy en el backend")
 
-    const { email, password, username } = req.body
+    const { email, password, name } = req.body
+    console.log(req.body)
 
     if (password.length < 2) {
         res.status(400).json({ message: 'Password must have at least 3 characters' })
@@ -29,7 +34,7 @@ router.post('/signup', (req, res, next) => {
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
 
-            return User.create({ email, password: hashedPassword, username })
+            return User.create({ email, password: hashedPassword, name })
         })
         .then(() => res.sendStatus(201))
         .catch(err => next(err))
@@ -48,6 +53,7 @@ router.post('/login', (req, res, next) => {
         return;
     }
 
+
     User
         .findOne({ email })
         .then((foundUser) => {
@@ -59,8 +65,9 @@ router.post('/login', (req, res, next) => {
 
             if (bcrypt.compareSync(password, foundUser.password)) {
 
-                const { _id, email, username } = foundUser;
-                const payload = { _id, email, username }
+                const { _id, name, email } = foundUser;
+                const payload = { _id, name, email }
+                console.log("PAYLOAD", payload)
 
                 const authToken = jwt.sign(
                     payload,
