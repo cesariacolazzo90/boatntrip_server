@@ -23,17 +23,26 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: ['renter', 'letter', 'admin'],
+      enum: ['renter', 'boatOwner', 'admin'],
       default: 'renter'
     },
+
+    imageUrl: {
+
+
+      type: String
+    },
+
 
     bankAccount: {
       type: Number
     }
   },
+
   {
     timestamps: true
-  }
+  },
+
 )
 
 module.exports = model('User', userSchema)

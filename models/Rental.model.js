@@ -35,13 +35,13 @@ const rentalSchema = new Schema(
             type: String
 
         },
-        // // participants: [
-        // //     {
-        // //         type: Schema.Types.ObjectId,
-        // //         ref: 'User'
-        // //     }
-        // ],
-        participants: {
+        participants: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
+        attendees: {
             type: Number,
             default: 0
         },
