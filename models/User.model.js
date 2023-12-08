@@ -7,7 +7,6 @@ const userSchema = new Schema(
       required: [true, 'Name is required']
     },
 
-
     email: {
       type: String,
       unique: true,
@@ -23,22 +22,22 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: ['renter', 'boatOwner', 'admin'],
-      default: 'renter'
+      enum: ['tourist', 'boatOwner', 'admin'],
+      default: 'tourist'
     },
 
     imageUrl: {
-
-
       type: String
     },
 
-
     bankAccount: {
-      type: Number
-    }
-  },
+      type: String
+    },
+    city: {
+      type: String
+    },
 
+  },
   {
     timestamps: true
   },

@@ -26,6 +26,7 @@ const rentalSchema = new Schema(
             type: String,
             required: true
         },
+
         owner: {
             type: Schema.Types.ObjectId,
             ref: 'User',
@@ -41,16 +42,19 @@ const rentalSchema = new Schema(
                 ref: 'User'
             }
         ],
-        attendees: {
+
+
+        price: {
             type: Number,
-            default: 0
-        },
-        suggestions: {
-            type: String,
+            required: false
+
         },
         imageUrl: {
             type: String
-        }
+        },
+        boatType: {
+            type: String
+        },
 
 
     },
