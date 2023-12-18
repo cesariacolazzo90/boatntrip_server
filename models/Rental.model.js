@@ -5,11 +5,11 @@ const rentalSchema = new Schema(
     {
         title: {
             type: String,
-            required: [true, 'Let the owner understand your need']
+            required: [false]
         },
         date: {
             type: Date,
-            required: [true, 'Date is required']
+            required: [false]
         },
         city: {
             type: String
@@ -24,7 +24,7 @@ const rentalSchema = new Schema(
         },
         description: {
             type: String,
-            required: true
+            required: false
         },
 
         owner: {

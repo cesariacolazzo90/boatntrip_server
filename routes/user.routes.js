@@ -3,7 +3,7 @@ const User = require('../models/User.model')
 
 const { verifyToken } = require('../middlewares/verifyToken')
 
-router.get("/allUsers", (req, res) => {
+router.get("/allUsers", (req, res, next) => {
 
     User
         .find()
