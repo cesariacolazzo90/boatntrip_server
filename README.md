@@ -13,7 +13,6 @@
 | PUT    	| `/edit/:rental_id`  	| Matching ID rental edit 	|
 | PUT    	|'/joinRental/:rental_id' | button to let user participate to a boat trip|
 | PUT    	|'/unjoinRental/:rental_id' | button to let user delete his partecipation to a boat trip|
-
 | DELETE 	| `/delete/:rental_id` 	| Delete a Rental             	|
 | POST   	| `/login`            	| Log in page                 	|
 | POST   	| `/signup`           	| Sign up page                	|
