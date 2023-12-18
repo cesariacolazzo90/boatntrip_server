@@ -33,7 +33,7 @@ CLIENTE
 | `/signup`             | Sign up page               |           |
 | `/allusers`           | All users list             |           |
 | `/user/:user_id`      | Matching ID user detail    | X         |
-| `/edit_user/:user_id` | Matching ID user detail    | X         |
+| `/edit_user/:user_id` | Matching ID user update    | X         |
 | `*`                   | 404 page                   |           |
 
 # blablaboat
