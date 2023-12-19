@@ -3,9 +3,9 @@ const router = require("express").Router()
 const uploader = require('../middlewares/uploader.middleware')
 
 router.post('/image', uploader.single('imageData'), (req, res) => {
-    console.log("------------------------back")
+    
     if (!req.file) {
-        res.status(500).json({ errorMessage: 'Error caragndo el archivo' })
+        res.status(500).json({ errorMessage: 'Error charging file' })
         return
     }
 

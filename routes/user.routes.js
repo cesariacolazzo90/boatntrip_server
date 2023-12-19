@@ -18,7 +18,7 @@ router.get("/allUsers", (req, res, next) => {
 
 router.get("/profile", verifyToken, (req, res, next) => {
 
-    console.log('-------------------PAULOAD', req.payload)
+
     const { _id } = req.payload
 
 
@@ -32,22 +32,7 @@ router.get("/profile", verifyToken, (req, res, next) => {
 
 
 
-router.put("/editMyProfile", verifyToken, (req, res, next) => {
 
-
-
-    const { user_id: _id } = req.payload
-    const { email, name, imageUrl, city } = req.body
-
-
-
-    User
-        .findByIdAndUpdate(loggedUser._id, { email, name, imageUrl, city })
-        .then(response => {
-            res.json(response)
-        })
-        .catch(err => next(err))
-})
 
 
 router.get("/details/:user_id", verifyToken, (req, res, next) => {
@@ -66,11 +51,11 @@ router.get("/details/:user_id", verifyToken, (req, res, next) => {
 
 router.put("/edit/:user_id", verifyToken, (req, res, next) => {
     const { user_id } = req.params
-    const { email, name, imageUrl, bankAccount, city } = req.body
+    const { email, name, imageUrl, city} = req.body
 
 
     User
-        .findByIdAndUpdate(user_id, { email, name, imageUrl, bankAccount, city })
+        .findByIdAndUpdate(user_id, { email, name, imageUrl, city })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
@@ -82,7 +67,7 @@ router.get('/findByCity', (req, res, next) => {
     const { city } = req.query
 
     User
-        // .find({ type: new RegExp(`^${searchQuery}`, 'i') })
+
         .find({ city })
         .then(response => res.json(response))
         .catch(err => next(err))

@@ -3,7 +3,7 @@ const Rental = require('../models/Rental.model')
 const { verifyToken } = require('../middlewares/verifyToken')
 
 
-router.get("/allRentals", (req, res) => {
+router.get("/allRentals", (req, res, next) => {
 
     Rental
         .find()
@@ -97,30 +97,13 @@ router.get('/searchCity', (req, res, next) => {
 
 
 
-router.get('/sortPrice', (req, res, next) => {
-
-
-    Rental
-        .find()
-        .sort({ price: - 1 })
-        .then(response => res.json(response))
-        .catch(err => next(err));
-});
-
-
-
-
-
-
-
-
 
 router.get('/searchBoat', (req, res, next) => {
 
     const { boatType } = req.query
 
     Rental
-        // .find({ type: new RegExp(`^${searchQuery}`, 'i') })
+    
         .find({ boatType })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -129,8 +112,7 @@ router.get('/searchBoat', (req, res, next) => {
 
 
 router.put('/joinRental/:rental_id', verifyToken, (req, res, next) => {
-    console.log("-----------------", req.params)
-    console.log("-----------------", req.payload)
+   
     const { rental_id } = req.params
     const { _id } = req.payload
 
