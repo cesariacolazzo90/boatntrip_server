@@ -83,7 +83,11 @@ router.post('/login', (req, res, next) => {
             }
 
         })
-        .catch(err => next(err));
+        /*.catch(err => next(err));*/
+    .catch(err => {
+  console.error("LOGIN ERROR:", err);
+  res.status(500).json({ message: err.message });
+});
 })
 
 
