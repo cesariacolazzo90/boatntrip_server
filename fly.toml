@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "server-boatbooking"
+app = "server-boatbooking-2026"
 primary_region = "mad"
 
 [build]
